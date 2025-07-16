@@ -1,0 +1,27 @@
+404 server status favicon.ico
+
+기본적으로 API URL을 활용해서 외부 데이터를 가져오면 json 이라는 형태의 파일을 찾아온다 => 파이썬의 딕셔너리 자료구조 매우 흡사!!!
+
+카카오처럼 네이버 애플리케이션 등록!!
+
+http://localhost
+
+여러분들이 사용하고 있는 학원 컴퓨터의 메모리 공간 중 일부를 사용해서 해당 공간을 서버로 사용하겠다는 의미를 내포 => 해당 서버만의 도메인 주소 => http://127.0.0.1 => ip => 
+
+
+html : 
+
+웹 브라우저가 인식할 수 있는 언어는 3개 밖에 없음!!!
+
+html : hyper text markup language
+
+<h1>Hello world</h1>
+h1 => 32px 큰 사이즈 폰트를 사용해라 라는 명령
+자유분방한 영혼 => 판에 박힌 태그만 사용 지루
+
+xml => extensible markup language
+
+css : cascading style sheet
+js : javascript
+
+

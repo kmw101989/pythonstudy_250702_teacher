@@ -46,4 +46,3 @@ SELECT name, grade FROM students;
 SELECT * FROM students WHERE age = 16; # 대입연산자
 SELECT * FROM students WHERE age != 15; # 부정연산자 - 1
 SELECT * FROM students WHERE age <> 15; # 부정연산자 - 2
-

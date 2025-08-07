@@ -1,3 +1,5 @@
+USE sakila;
+
 SELECT rating FROM film
 GROUP BY rating;
 

@@ -58,3 +58,62 @@ JOIN reviews R
 ON P.product_id = R.product_id
 GROUP BY product_name
 ORDER BY RT DESC;
+
+SELECT COUNT(*) recent_order_count
+FROM orders
+WHERE order_date >= CURDATE() - INTERVAL 30 DAY;
+
+# 상품별 최근 한달간 주문건수를 구하세요!
+SELECT * FROM orders LIMIT 1;
+SELECT * FROM customers LIMIT 1;
+SELECT * FROM products LIMIT 1;
+
+SELECT O.product_id, P.product_name, COUNT(*) recent_order_count
+FROM orders O
+JOIN products P ON O.product_id = P.product_id
+WHERE O.order_date >= CURDATE() - INTERVAL 30 DAY
+GROUP BY product_id
+ORDER BY recent_order_count DESC;
+
+# 고객별 총 구매 건수와 구매 수량을 구하시고 출력해주세요!!!
+SELECT * FROM orders LIMIT 1;
+
+SELECT
+	O.customer_id,
+    C.name,
+    COUNT(*) order_count,
+	SUM(O.quantity) total_quantity
+FROM orders O
+JOIN customers C ON O.customer_id = C.customer_id
+GROUP BY O.customer_id
+ORDER BY order_count DESC;
+
+# 고객별 총 구매금액 (*할인가를 기준)을 계산 후 출력해주세요!!!
+
+SELECT
+	O.customer_id,
+    C.name,
+    SUM(P.discount_price * O.quantity) total_spent
+FROM orders O
+JOIN customers C ON O.customer_id = C.customer_id
+JOIN products P ON O.product_id = P.product_id
+GROUP BY O.customer_id
+ORDER BY total_spent DESC;
+
+# 지금까지 가장 많이 판매된 상품(*수량) TOP 5를 출력해주세요!
+
+SELECT P.product_name, SUM(O.quantity) total_sold
+FROM orders O
+JOIN products P ON O.product_id = P.product_id
+GROUP BY O.product_id
+ORDER BY total_sold DESC
+LIMIT 5;
+
+# 평균 평점이 4.5 이상인 상품명과 평점 출력 (*인기상품)
+
+SELECT P.product_name, AVG(R.rating) avg_rating
+FROM reviews R
+JOIN products P ON R.product_id = P.product_id
+GROUP BY R.product_id
+HAVING avg_rating >= 4.5
+ORDER BY avg_rating DESC;
